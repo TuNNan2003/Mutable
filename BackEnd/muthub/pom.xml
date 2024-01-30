@@ -14,9 +14,10 @@
 
 	<modules>
 		<module>muthub-parent</module>
-    <module>muthub-core</module>
+        <module>muthub-core</module>
 		<module>muthub-storage</module>
 		<module>muthub-user</module>
 		<module>muthub-web</module>
-	</modules>
+        <module>muthub-id</module>
+    </modules>
 </project>

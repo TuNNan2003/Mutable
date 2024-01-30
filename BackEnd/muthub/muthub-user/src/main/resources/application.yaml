@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: muthub-user
+  profiles:
+    active: consul
+  autoconfigure:
+    exclude: org.springframework.cloud.zookeeper.serviceregistry.ZookeeperAutoServiceRegistrationAutoConfiguration
+  cloud:
+    zookeeper:
+      connect-string: 123.57.59.153:2181
+      discovery:
+        register: false
+    consul:
+      host: 123.57.59.153
+      port: 8500
+      discovery:
+        service-name: muthub-user
+        heartbeat:
+          enabled: true
+server:
+  port: 10000
+logging:
+  level:
+    root: info
+  file:
+   name: ./log/muthub-user.log
+
+dubbo:
+  application:
+    name: muthub-user
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: 123.57.59.153:8500
