@@ -1,17 +1,17 @@
 package com.unloadhome.model;
 
 public class loginRequest {
-    private String name;
+    private String email;
     private String password;
 
-    public loginRequest(String name, String password) {
-        this.name = name;
+    public loginRequest(String email, String password) {
+        this.email = email;
         this.password = password;
-
     }
+    public loginRequest(){}
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
     public String getPassword() {

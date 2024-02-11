@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: muthub-gateway
+  profiles:
+    active: consul
+  cloud:
+    consul:
+      host: 123.57.59.153
+      port: 8500
+      discovery:
+        service-name: muthub-gateway
+        heartbeat:
+          enabled: true
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://muthub-user
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+  server:
+    port: 10240
+  logging:
+    level:
+      root: info
+    file:
+      name: ./log/muthub-gateway.log

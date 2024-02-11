@@ -1,4 +1,4 @@
-package com.unloadhome.model;
+package com.unloadhome.common;
 
 public enum Status {
     SUCCESS,

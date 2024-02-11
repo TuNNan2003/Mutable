@@ -19,5 +19,6 @@
 		<module>muthub-user</module>
 		<module>muthub-web</module>
         <module>muthub-id</module>
+        <module>muthub-gateway</module>
     </modules>
 </project>

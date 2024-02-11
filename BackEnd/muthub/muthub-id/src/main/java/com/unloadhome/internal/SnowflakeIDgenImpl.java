@@ -1,9 +1,8 @@
 package com.unloadhome.internal;
 
-import com.unloadhome.common.Response;
+import com.unloadhome.dubbointerface.IdResponse;
 import com.unloadhome.common.Status;
 
-import javax.management.relation.RelationNotFoundException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -60,7 +59,7 @@ public class SnowflakeIDgenImpl implements IDgen{
     }
 
     @Override
-    public synchronized Response get(String key){
+    public synchronized IdResponse get(String key){
         long timepin = timeGen();
         if(timepin < timePinLatest){
             long offset = timePinLatest - timepin;
@@ -69,14 +68,14 @@ public class SnowflakeIDgenImpl implements IDgen{
                     wait(offset << 1);
                     timepin = timeGen();
                     if(timepin < timePinLatest){
-                        return new Response(-1, Status.Exception);
+                        return new IdResponse(-1, Status.Exception);
                     }
                 }catch (InterruptedException e) {
                     LOGGER.error("wait interrupted");
-                    return new Response(-2, Status.Exception);
+                    return new IdResponse(-2, Status.Exception);
                 }
             }else {
-                return new Response(-3, Status.Exception);
+                return new IdResponse(-3, Status.Exception);
             }
         }
         if(timepin == timePinLatest){
@@ -92,7 +91,7 @@ public class SnowflakeIDgenImpl implements IDgen{
         long id = ((timepin - timePinBegin) << timePinShift) |
                 (workerId << workerIdShift) |
                 seq;
-        return new Response(id, Status.SUCCESS);
+        return new IdResponse(id, Status.SUCCESS);
     }
 
     public long getWorkerId() {

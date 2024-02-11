@@ -1,17 +1,14 @@
 package com.unloadhome.service;
 
 import com.unloadhome.common.PropertyFactory;
-import com.unloadhome.common.Response;
+import com.unloadhome.dubbointerface.IdResponse;
 import com.unloadhome.internal.IDgen;
 import com.unloadhome.internal.SnowflakeIDgenImpl;
 import org.springframework.stereotype.Service;
 import com.unloadhome.common.Constants;
 import com.unloadhome.exception.InitException;
-import com.unloadhome.common.PropertyFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Properties;
 
@@ -37,7 +34,7 @@ public class SnowflakeService {
         }
     }
 
-    public Response getId(String key){
+    public IdResponse getId(String key){
         return idGen.get(key);
     }
 }

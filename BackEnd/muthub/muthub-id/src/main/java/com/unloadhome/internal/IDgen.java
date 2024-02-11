@@ -1,7 +1,8 @@
 package com.unloadhome.internal;
 
-import com.unloadhome.common.*;
+import com.unloadhome.dubbointerface.IdResponse;
+
 public interface IDgen {
-    Response get(String key);
+    IdResponse get(String key);
     boolean init();
 }

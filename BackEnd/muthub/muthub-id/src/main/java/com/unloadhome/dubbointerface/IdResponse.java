@@ -1,15 +1,27 @@
-package com.unloadhome.common;
+package com.unloadhome.dubbointerface;
 
-public class Response {
+import com.unloadhome.common.Status;
+
+import java.io.Serializable;
+
+public class IdResponse implements Serializable {
     private long id;
     private Status status;
 
-    public Response() {
+    public IdResponse() {
     }
 
-    public Response(long id, Status status) {
+    public IdResponse(long id, Status status) {
         this.id = id;
         this.status = status;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 
     public void setId(long id) {

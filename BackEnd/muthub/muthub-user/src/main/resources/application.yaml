@@ -17,6 +17,11 @@ spring:
         service-name: muthub-user
         heartbeat:
           enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/MutHub
+    username: TuNNan
+    password: TuNNan
 server:
   port: 10000
 logging:
@@ -32,4 +37,4 @@ dubbo:
     name: dubbo
     port: -1
   registry:
-    address: 123.57.59.153:8500
+    address: consul://123.57.59.153:8500
