@@ -1,9 +1,8 @@
-package com.unloadhome.common;
+package com.unloadhome.model;
 
 import lombok.Data;
 
 import java.io.Serializable;
-//import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 
 @Data
 public class Result implements Serializable {

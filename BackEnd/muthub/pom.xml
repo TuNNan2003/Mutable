@@ -20,5 +20,6 @@
 		<module>muthub-web</module>
         <module>muthub-id</module>
         <module>muthub-gateway</module>
+        <module>muthub-repository</module>
     </modules>
 </project>

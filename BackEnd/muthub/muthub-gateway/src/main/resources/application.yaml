@@ -19,6 +19,16 @@ spring:
             - Path=/user/**
           filters:
             - StripPrefix=1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: 'http://localhost:9401/rsa/publicKey' #配置RSA的公钥访问地址
+  redis:
+    database: 0
+    port: 6379
+    host:  120.46.208.70
+    password:
   server:
     port: 10240
   logging:
@@ -26,3 +36,8 @@ spring:
       root: info
     file:
       name: ./log/muthub-gateway.log
+secure:
+  ignore:
+    urls:
+      - "/register"
+      - "/user/login"

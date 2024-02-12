@@ -29,7 +29,7 @@ public class MuthubUserController {
     public Result login(@RequestBody loginRequest request){
         loginStatus status = userService.login(request.getEmail(), request.getPassword());
         if(status == loginStatus.SUCCESS){
-            return Result.succ(status);
+            return Result.succ(200, "login success", status);
         }else{
             return Result.fail("email or password error");
         }

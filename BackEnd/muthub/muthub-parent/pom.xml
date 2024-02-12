@@ -55,21 +55,21 @@
 				<type>pom</type>
 				<scope>import</scope>
 				<exclusions>
-					<exclusion> 
+					<exclusion>
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-log4j12</artifactId>
 					</exclusion>
-					<exclusion> 
+					<exclusion>
 						<groupId>log4j</groupId>
 						<artifactId>log4j</artifactId>
 					</exclusion>
-				</exclusions> 
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.powermock</groupId>
 				<artifactId>powermock-core</artifactId>
 				<version>${powermock.version}</version>
-      </dependency>
+      		</dependency>
 			<dependency>
 				<groupId>org.powermock</groupId>
 				<artifactId>powermock-module-junit4</artifactId>
