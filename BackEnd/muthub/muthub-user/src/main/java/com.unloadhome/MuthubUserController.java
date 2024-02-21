@@ -56,4 +56,10 @@ public class MuthubUserController {
         }
     }
 
+    @RequestMapping("/hello")
+    public Result hello(){
+        System.out.println("new enter");
+        return Result.succ("Hello world");
+    }
+
 }

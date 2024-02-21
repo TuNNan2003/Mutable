@@ -23,7 +23,7 @@ spring:
     username: TuNNan
     password: TuNNan
 server:
-  port: 10000
+  port: 10003
 logging:
   level:
     root: info

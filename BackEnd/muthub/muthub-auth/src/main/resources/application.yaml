@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: muthub-auth
+  profiles:
+    active: consul
+  cloud:
+    consul:
+      host: 123.57.59.153
+      port: 8500
+      discovery:
+        service-name: muthub-auth
+        heartbeat:
+          enabled: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    database: 0
+    port: 6379
+    host: 120.46.208.70
+    password:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/MutHub
+    username: TuNNan
+    password: TuNNan
+  server:
+    port: 100000
+  logging:
+    level:
+      root: DEBUG
+    file:
+      name: ./log/muthub-auth.log
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
