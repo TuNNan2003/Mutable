@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>com.unloadhome</groupId>
-    <artifactId>muthub-repository</artifactId>
+    <artifactId>muthub-mail</artifactId>
     <version>1.0.1</version>
     <packaging>jar</packaging>
 
@@ -42,11 +42,7 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.2.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.bacoder.jgit</groupId>
-            <artifactId>org.eclipse.jgit</artifactId>
-            <version>3.1.0-201309071158-r</version>
-        </dependency>
+<!--        kafka-->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
@@ -54,6 +50,11 @@
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
+        </dependency>
+<!--        spring-email-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

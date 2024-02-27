@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: muthub-mail
+  profiles:
+    active: consul
+  cloud:
+    consul:
+      host: 123.57.59.153
+      port: 8500
+      discovery:
+        service-name: muthub-mail
+        heartbeat:
+          enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/Muthub
+    username: TuNNan
+    password: TuNNan
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  kafka:
+    bootstrap-servers: 123.57.59.153:9092
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+  mail:
+    host: smtp.163.com
+    username: Muthub@163.com
+    password: RETWMLDRATIWZJSC
+    port: 465
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: false
+            required: false
+        debug: true
+    protocol: smtps
+kafka:
+  topic:
+    Watch-Mail: watchMail
+server:
+  port: 1002
+  tomcat:
+    max-http-form-post-size: 20MB
+logging:
+  file:
+    name: ./log/muthub-mail.log
+  level:
+    root: info

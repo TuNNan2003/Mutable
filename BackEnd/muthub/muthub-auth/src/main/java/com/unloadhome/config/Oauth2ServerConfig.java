@@ -1,5 +1,6 @@
 package com.unloadhome.config;
 
+import com.unloadhome.common.CustomJwtAccessTokenConverter;
 import com.unloadhome.service.UserServiceImpl;
 import com.unloadhome.common.JwtTokenEnhancer;
 import lombok.AllArgsConstructor;
@@ -68,8 +69,8 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     @Bean
-    public JwtAccessTokenConverter accessTokenConverter() {
-        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
+    public CustomJwtAccessTokenConverter accessTokenConverter() {
+        CustomJwtAccessTokenConverter jwtAccessTokenConverter = new CustomJwtAccessTokenConverter();
         jwtAccessTokenConverter.setKeyPair(keyPair());
         return jwtAccessTokenConverter;
     }

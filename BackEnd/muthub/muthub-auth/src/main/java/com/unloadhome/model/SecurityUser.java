@@ -20,7 +20,7 @@ public class SecurityUser implements UserDetails {
         this.email = Info.getEmail();
         this.password = Info.getPassword();
         authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("user"));
+        authorities.add(new SimpleGrantedAuthority("guest"));
     }
 
     @Override

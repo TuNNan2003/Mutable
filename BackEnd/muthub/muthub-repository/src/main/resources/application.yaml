@@ -16,8 +16,23 @@ spring:
       url: jdbc:mysql://localhost:3306/Muthub
       username: TuNNan
       password: TuNNan
+    servlet:
+      multipart:
+        max-file-size: 20MB
+        max-request-size: 20MB
+    kafka:
+      bootstrap-servers: 123.57.59.153:9092
+      producer:
+        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+        compression-type: gzip
+        retries: 2
+kafka:
+  topic:
+    Watch-Mail: watchMail
 server:
-  port: 10002
+  port: 10003
+  tomcat:
+    max-http-form-post-size: 20MB
 logging:
   file:
     name: ./log/muthub-repository.log
