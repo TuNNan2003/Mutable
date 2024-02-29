@@ -1,7 +1,9 @@
 package com.unloadhome.service;
 
+import com.unloadhome.mapper.RepoMapper;
 import com.unloadhome.mapper.UserMapper;
 import com.unloadhome.model.MailMessage;
+import com.unloadhome.model.Repo;
 import org.apache.kafka.common.protocol.types.Field;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +16,7 @@ import javax.mail.MessagingException;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class MailService {
@@ -27,6 +30,9 @@ public class MailService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private RepoMapper repoMapper;
 
     public void sendTextMailMessage(MailMessage mailMessage){
         String to = userMapper.selectUser(mailMessage.getUserID()).getEmail();
@@ -51,7 +57,13 @@ public class MailService {
     public boolean preSendCheck(MailMessage mailMessage){
         if(userMapper.checkIdExist(mailMessage.getUserID()).size() == 1){
             if(userMapper.checkIdExist(mailMessage.getOwnerID()).size() == 1){
-                return true;
+                List<Repo> result = repoMapper.getRepo(mailMessage.getOwnerID(), mailMessage.getRepoName());
+                if(result.size() == 1){
+                    return true;
+                }else {
+                    LOGGER.error("the repoName is invalid");
+                    return false;
+                }
             }else{
                 LOGGER.error("the ID want to send email not found");
                 return false;
